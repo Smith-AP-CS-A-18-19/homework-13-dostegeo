@@ -9,8 +9,51 @@ import java.awt.geom.Rectangle2D;
  * must remain the same for the assignment to be scored
  * correctly
  */
-// public Triangle(int x, int y, int width, int height, double angle)
+ public class Triangle implements SmithShape{
+ private int xCord;
+ private int yCord;
+ private int shapeWidth;
+ private int shapeHeight;
+ private double shapeAngle;
 
+public Triangle(int x, int y, int width, int height, double angle){
+xCord = x;
+yCord = y;
+shapeWidth = width;
+shapeHeight = height;
+shapeAngle = angle;
+}
+
+public int getY(){
+  return yCord;
+}
+public int getX(){
+  return xCord;
+}
+public int getWidth(){
+  return shapeWidth;
+}
+public int getHeight(){
+  return shapeHeight;
+}
+public double getArea(){
+  double area = (shapeWidth * shapeHeight) / 2;
+  return area;
+}
+public double getAngle(){
+  return shapeAngle;
+}
+public Rectangle2D toSquare(){
+  double rectSide = Math.sqrt(this.getArea());
+  Rectangle2D r = new Rectangle2D.Double(xCord, yCord, rectSide, rectSide);
+  return r;
+}
+@Override
+public String toString(){
+  String triString = "Width: " + shapeWidth + "\nHeight: " + shapeHeight + "\nAngle: " + shapeAngle;
+  return triString;
+}
+}
 /* You will need to add a getAngle() method that returns
  * the angle of the triangle
  */
